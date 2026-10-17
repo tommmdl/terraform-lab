@@ -94,6 +94,8 @@ python3 scripts/verify.py
 
 Checks formatting, configuration, invalid port rejection, initial plan, apply, API, no-op plan, replacement of both containers with persistence, API stop drift, reconciliation, destroy plan and removal of managed resources. Only checks and curated plan actions are exported; raw state and plans remain local.
 
+If interrupted or failed, the test may leave resources behind. Inspect `state list` and a destroy plan; do not delete state to bypass the empty-state guard.
+
 [Actual results and evidence](docs/validation.en.md).
 
 ## State and secrets

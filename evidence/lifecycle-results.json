@@ -1,0 +1,136 @@
+{
+  "executed_at_utc": "2026-10-17T22:08:59Z",
+  "checks_passed": 22,
+  "checks": [
+    "Terraform formatting valid",
+    "Terraform configuration valid",
+    "Invalid API port rejected before apply",
+    "Initial plan creates six managed resources",
+    "All resource names isolated under terraform-lab prefix",
+    "API ready after apply",
+    "Create note returns 201",
+    "Second plan is idempotent: exit 0 and no changes",
+    "Replacement plan only replaces two containers",
+    "Note survives API and database container replacement",
+    "Stopped API produces drift: plan exit 2",
+    "API recovered after Terraform reconciliation",
+    "Note survives drift repair",
+    "Reconciled infrastructure has no pending changes",
+    "Destroy plan removes six managed resources",
+    "Terraform state empty after destroy",
+    "container removed: terraform-lab-api",
+    "container removed: terraform-lab-db",
+    "network removed: terraform-lab-network",
+    "volume removed: terraform-lab-pgdata",
+    "Password absent from terraform.tfstate",
+    "Password absent from terraform.tfstate.backup"
+  ],
+  "plans": {
+    "create": [
+      {
+        "address": "module.notes.docker_container.api",
+        "actions": [
+          "create"
+        ]
+      },
+      {
+        "address": "module.notes.docker_container.db",
+        "actions": [
+          "create"
+        ]
+      },
+      {
+        "address": "module.notes.docker_image.api",
+        "actions": [
+          "create"
+        ]
+      },
+      {
+        "address": "module.notes.docker_image.postgres",
+        "actions": [
+          "create"
+        ]
+      },
+      {
+        "address": "module.notes.docker_network.app",
+        "actions": [
+          "create"
+        ]
+      },
+      {
+        "address": "module.notes.docker_volume.postgres",
+        "actions": [
+          "create"
+        ]
+      }
+    ],
+    "no-op": [],
+    "replace-containers": [
+      {
+        "address": "module.notes.docker_container.api",
+        "actions": [
+          "delete",
+          "create"
+        ]
+      },
+      {
+        "address": "module.notes.docker_container.db",
+        "actions": [
+          "delete",
+          "create"
+        ]
+      }
+    ],
+    "drift": [
+      {
+        "address": "module.notes.docker_container.api",
+        "actions": [
+          "delete",
+          "create"
+        ]
+      }
+    ],
+    "final-no-op": [],
+    "destroy": [
+      {
+        "address": "module.notes.docker_container.api",
+        "actions": [
+          "delete"
+        ]
+      },
+      {
+        "address": "module.notes.docker_container.db",
+        "actions": [
+          "delete"
+        ]
+      },
+      {
+        "address": "module.notes.docker_image.api",
+        "actions": [
+          "delete"
+        ]
+      },
+      {
+        "address": "module.notes.docker_image.postgres",
+        "actions": [
+          "delete"
+        ]
+      },
+      {
+        "address": "module.notes.docker_network.app",
+        "actions": [
+          "delete"
+        ]
+      },
+      {
+        "address": "module.notes.docker_volume.postgres",
+        "actions": [
+          "delete"
+        ]
+      }
+    ]
+  },
+  "result": "apply, idempotence, persistence, drift repair and destroy verified",
+  "final_state_resource_count": 0,
+  "final_infrastructure": "destroyed; cached images retained"
+}

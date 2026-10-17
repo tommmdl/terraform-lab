@@ -94,6 +94,8 @@ python3 scripts/verify.py
 
 O teste verifica formatação, configuração, rejeição de porta inválida, plano inicial, apply, API, plano sem alterações, substituição dos dois containers com persistência, drift por parada da API, reconciliação, plano de destroy e remoção de todos os recursos gerenciados. Só exporta checks e ações dos planos; state e planos brutos permanecem locais.
 
+Se o teste for interrompido ou falhar, recursos podem permanecer. Inspecione `state list` e o plano de destroy; não apague o state para liberar uma nova execução.
+
 [Resultados reais e evidências](docs/validation.md).
 
 ## State e segredos

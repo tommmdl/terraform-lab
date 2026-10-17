@@ -1,0 +1,9 @@
+{
+  "terraform_version": "1.14.9",
+  "platform": "linux_amd64",
+  "provider_selections": {
+    "registry.terraform.io/kreuzwerker/docker": "4.6.0"
+  },
+  "terraform_outdated": true,
+  "docker_engine": "29.1.3"
+}
